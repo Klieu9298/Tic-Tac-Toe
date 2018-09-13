@@ -61,5 +61,29 @@ def board():
     verticleTwo.setWidth(3)
     verticleTwo.draw(win)
 
-board()
+    numberBoard()
 
+#Assigns a number to each square
+def numberBoard():
+    for i in range(9):
+        win.items[i].setTextColor('red')
+        win.items[i].setStyle('bold')
+        win.items[i].setSize(15)
+        win.items[i].draw(win)
+def noBoard():
+    for i in range(9):
+        tile = Text(Point(120+(i%3)*100, 120+(i//3)*100), i+1)
+        win.items.append(tile)
+
+#Restart function        
+def restart():
+    count=0
+    for i in range(9):
+        win.items[i].setText(str(i+1))
+        
+#Exit function
+def exit():
+    win.close()
+    raise SystemExit()
+noBoard()
+board()
