@@ -5,6 +5,33 @@ win = GraphWin('Tic Tac Toe',600, 500)
 count=0
 win.items=[]
 
+def players():
+    
+    onePlayerB = Rectangle(Point(550,200), Point(350,300))
+    onePlayerB.setOutline('black')
+    onePlayerB.setFill('grey')
+    onePlayerB.setWidth(1)
+    onePlayerB.draw(win)
+
+    onePlayerT = Text(Point(450,250), 'One-Player')
+    onePlayerT.setTextColor('red')
+    onePlayerT.setStyle('bold')
+    onePlayerT.setSize(20)
+    onePlayerT.draw(win)
+
+    twoPlayerB = Rectangle(Point(250,200), Point(50,300))
+    twoPlayerB.setOutline('black')
+    twoPlayerB.setFill('grey')
+    twoPlayerB.setWidth(1)
+    twoPlayerB.draw(win)
+
+    twoPlayerT = Text(Point(150,250), 'Two-Player')
+    twoPlayerT.setTextColor('red')
+    twoPlayerT.setStyle('bold')
+    twoPlayerT.setSize(20)
+    twoPlayerT.draw(win)
+
+
 def board():
     #restart Button
     reBut = Rectangle(Point(440,160), Point(560,190))
