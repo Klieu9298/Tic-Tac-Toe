@@ -5,31 +5,6 @@ win = GraphWin('Tic Tac Toe',600, 500)
 score=0
 win.items=[]
 
-#def players():
-
-#    onePlayerB = Rectangle(Point(550,200), Point(350,300))
-#    onePlayerB.setOutline('black')
-#    onePlayerB.setFill('grey')
-#    onePlayerB.setWidth(1)
-#    onePlayerB.draw(win)
-#    onePlayerT = Text(Point(450,250), 'One-Player')
-#    onePlayerT.setTextColor('red')
-#    onePlayerT.setStyle('bold')
-#    onePlayerT.setSize(20)
-#    onePlayerT.draw(win)
-
-#    twoPlayerB = Rectangle(Point(250,200), Point(50,300))
-#    twoPlayerB.setOutline('black')
-#    twoPlayerB.setFill('grey')
-#    twoPlayerB.setWidth(1)
-#    twoPlayerB.draw(win)
-#    twoPlayerT = Text(Point(150,250), 'Two-Player')
-#    twoPlayerT.setTextColor('red')
-#    twoPlayerT.setStyle('bold')
-#    twoPlayerT.setSize(20)
-#    twoPlayerT.draw(win)
-
-
 def board():
     #restart Button
     reBut = Rectangle(Point(440,160), Point(560,190))
@@ -88,35 +63,15 @@ def board():
 
     numberBoard()
 
-#Make it so players can not choose the same square
-def noBack():
-    for i in range(9):
-        tile = Text(Point(120+(i%3)*100, 120+(i//3)*100), i+1)
-        win.items.append(tile)
+def first():
+    
+    if random.randint(0, 1) == 0:
+        return 'computer'
+    else:
+        return 'player'
 
-#Assigns a number to each square
-def numberBoard():
-    for i in range(9):
-        win.items[i].setTextColor('red')
-        win.items[i].setStyle('bold')
-        win.items[i].setSize(15)
-        win.items[i].draw(win)
-
-#Restart function
-def restart():
-    score = 0
-    for i in range(9):
-        win.items[i].setText(str(i+1))
-    clear(win)
-    gameOne()
-    board()
-
-#Exit function
-def nowExit():
-    win.close()
-    raise SystemExit()
-
-#Game results in a draw
+def makeMove(board, letter, move):
+    board[move] = letter
 def tieGame():
     results = Text(Point(300, 50), "Tie Game")
     results.setSize(20)
@@ -126,8 +81,6 @@ def tieGame():
     time.sleep(3)
     results.setText("")
     gameTwo()
-
-#X is the winner
 def Xwinner():
     results = Text(Point(300, 50), "X is the winner!!")
     results.setSize(20)
@@ -147,98 +100,120 @@ def Owinner():
     results.draw(win)
     time.sleep(3)
     gameTwo()
+def getBoardCopy(board):
 
-def clear(win):
-    for item in win.items[:]:
-        item.undraw()
-    win.update()
-    board()
+    dBoard = []
 
-def invalidChoice():
-    results = Text(Point(250, 50), "Invalid Choice!")
-    results.setSize(20)
-    results.setTextColor('red')
-    results.setStyle('italic')
-    results.draw(win)
-    time.sleep(3)
-    results.setText("")
+    for i in board:
+        dBoard.append(i)
 
-def winnerCheck():
-    if (win.items[0].getText()==win.items[1].getText() and win.items[1].getText()==win.items[2].getText()):
-        if win.items[0].getText()== 'X': Xwinner()
-        elif win.items[0].getText()== 'O' : Owinner()
-        return False
-    elif (win.items[3].getText()==win.items[4].getText() and win.items[4].getText()==win.items[5].getText()):
-        if win.items[3].getText()== 'X' : Xwinner()
-        elif win.items[3].getText()== 'O' : Owinner()
-        return False
-    elif (win.items[6].getText()==win.items[7].getText() and win.items[7].getText()==win.items[8].getText()):
-        if win.items[6].getText()== 'X' : Xwinner()
-        elif win.items[6].getText()== 'O' : Owinner()
-        return False
-    elif (win.items[0].getText()==win.items[3].getText() and win.items[3].getText()==win.items[6].getText()):
-        if win.items[0].getText()== 'X' : Xwinner()
-        elif win.items[0].getText()== 'O' : Owinner()
-        return False
-    elif (win.items[1].getText()==win.items[4].getText() and win.items[4].getText()==win.items[7].getText()):
-        if win.items[1].getText()== 'X' : Xwinner()
-        elif win.items[1].getText()== 'O' : Owinner()
-        return False
-    elif (win.items[2].getText()==win.items[5].getText() and win.items[5].getText()==win.items[8].getText()):
-        if win.items[2].getText()== 'X' : Xwinner()
-        elif win.items[2].getText()== 'O' : Owinner()
-        return False
-    elif (win.items[0].getText()==win.items[4].getText() and win.items[4].getText()==win.items[8].getText()):
-        if win.items[0].getText()== 'X' : Xwinner()
-        elif win.items[0].getText()== 'O' : Owinner()
-        return False
-    elif (win.items[2].getText()==win.items[4].getText() and win.items[4].getText()==win.items[6].getText()):
-        if win.items[2].getText()== 'X' : Xwinner()
-        elif win.items[2].getText()== 'O' : Owinner()
-        return False
-    else :
-        for i in range(9):
-            if win.items[i].getText() not in ['X','O'] :
-                return True
-        tieGame()
-        return False
+    return dBoard
 
-def gameOne():
-    while (winnerCheck()):
-        playerButton=win.getMouse()
-        if ( (playerButton.getX()>100 and playerButton.getX()<400) and (playerButton.getY()>100 and playerButton.getY()<400)):
-            X=int((playerButton.getX()-100)//100)
-            Y=int((playerButton.getY()-100)//100)
-            global score
-            if not (win.items[Y*3+X].getText()=='X') and not (win.items[Y*3+X].getText()=='O') :
-                if score%2==0 : win.items[Y*3+X].setText('X')
-                else : win.items[Y*3+X].setText('O')
-                score+=1
-                clear(win)
+def isSpaceFree(board, move):
+    
+    return board[move] == ' '
 
-            else :
-                invalidChoice()
-        elif ((playerButton.getX()>440 and playerButton.getX()<560) and (playerButton.getY()>160 and playerButton.getY()<190)) :
-            restart ()
-        elif ((playerButton.getX()>440 and playerButton.getX()<560) and (playerButton.getY()>310 and playerButton.getY()<340)) :
-            nowExit ()
+def chooseRandomMoveFromList(board, movesList):
+  
+    possibleMoves = []
+    for i in movesList:
+        if isSpaceFree(board, i):
+            possibleMoves.append(i)
 
-def gameTwo():
-    playerButton=win.getMouse()
-    if ((playerButton.getX()>440 and playerButton.getX()<560) and (playerButton.getY()>160 and playerButton.getY()<190)) :
-        restart ()
-    elif ((playerButton.getX()>440 and playerButton.getX()<560) and (playerButton.getY()>310 and playerButton.getY()<340)) :
-        nowExit ()
-    else :
-        clear(win)
-        playerButton=win.getMouse()
-        if ((playerButton.getX()>440 and playerButton.getX()<560) and (playerButton.getY()>160 and playerButton.getY()<190)) :
-            restart ()
-        elif ((playerButton.getX()>440 and playerButton.getX()<560) and (playerButton.getY()>310 and playerButton.getY()<340)) :
-            nowExit ()
-        else :
-            gameTwo()
+    if len(possibleMoves) != 0:
+        return random.choice(possibleMoves)
+    else:
+        return None
 
-noBack()
-board()
-gameOne()
+def getComputerMove(board, cLetter):
+    
+    if cLetter == 'X':
+        pLetter = 'O'
+    else:
+        pLetter = 'X'
+
+    for i in range(1, 10):
+        copy = getBoardCopy(board)
+        if isSpaceFree(copy, i):
+            makeMove(copy, cLetter, i)
+            if winner(copy, cLetter):
+                return i
+
+    
+    for i in range(1, 10):
+        copy = getBoardCopy(board)
+        if isSpaceFree(copy, i):
+            makeMove(copy, pLetter, i)
+            if winner(copy, pLetter):
+                return i
+
+    
+    move = chooseRandomMoveFromList(board, [1, 3, 7, 9])
+    if move != None:
+        return move
+
+    
+    if isSpaceFree(board, 5):
+        return 5
+
+    
+    return chooseRandomMoveFromList(board, [2, 4, 6, 8])
+
+def isBoardFull(board):
+    
+    for i in range(1, 10):
+        if isSpaceFree(board, i):
+            return False
+    return True
+
+
+print('Welcome to Tic Tac Toe!')
+
+while True:
+   
+    theBoard = [' '] * 10
+    pLetter, cLetter = inputPlayerLetter()
+    turn = first()
+    print('The ' + turn + ' will go first.')
+    gameIsPlaying = True
+
+    while gameIsPlaying:
+        if turn == 'player':
+            
+            drawBoard(theBoard)
+            move = getPlayerMove(theBoard)
+            makeMove(theBoard, pLetter, move)
+
+            if winner(theBoard, pLetter):
+                drawBoard(theBoard)
+                print('YAY! YOU WON!')
+                playing = False
+            else:
+                if isBoardFull(theBoard):
+                    drawBoard(theBoard)
+                    print('The game is a tie!')
+                    break
+                else:
+                    turn = 'computer'
+
+        else:
+           
+            move = getComputerMove(theBoard, cLetter)
+            makeMove(theBoard, cLetter, move)
+
+            if winner(theBoard, cLetter):
+                drawBoard(theBoard)
+                print('The computer wins! You lose.')
+                playing = False
+            else:
+                if isBoardFull(theBoard):
+                    drawBoard(theBoard)
+                    print('The game is a tie!')
+                    break
+                else:
+                    turn = 'player'
+
+    if not again():
+        break
+
+
