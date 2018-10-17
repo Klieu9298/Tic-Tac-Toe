@@ -43,7 +43,7 @@ def main():
     exText.setSize(20)
     exText.draw(win)
 
-    #Custim
+    #Custom
     exBut = Rectangle(Point(180,370), Point(330,460))
     exBut.setOutline('black')
     exBut.setFill('grey')
