@@ -214,12 +214,133 @@ def modeOne():
                 nowExit ()
             else :
                 gameTwo()
-
     noBack()
     board()
     gameOne()
 
+def modeTwo():
+        win = GraphWin('Tic Tac Toe',500, 500)
+        win.items=[]
+
+        def board():
+            #exText = Text(Point(250,20), 'Please Select Difficulty')
+            #exText.setTextColor('black')
+            #exText.setSize(15)
+            #exText.draw(win)
+
+            exText = Text(Point(250,30), 'Not Finished')
+            exText.setTextColor('black')
+            exText.setSize(20)
+            exText.draw(win)
+            
+            #Two-Player
+            exBut = Rectangle(Point(180,90), Point(330,180))
+            exBut.setOutline('black')
+            exBut.setFill('grey')
+            exBut.setWidth(1)
+            exBut.draw(win)
+            exText = Text(Point(255,135), 'Easy')
+            exText.setTextColor('red')
+            exText.setStyle('bold')
+            exText.setSize(20)
+            exText.draw(win)
+
+            #Single Player
+            exBut = Rectangle(Point(180,230), Point(330,320))
+            exBut.setOutline('black')
+            exBut.setFill('grey')
+            exBut.setWidth(1)
+            exBut.draw(win)
+            exText = Text(Point(255,271), 'Medium')
+            exText.setTextColor('red')
+            exText.setStyle('bold')
+            exText.setSize(20)
+            exText.draw(win)
+
+            #Custom
+            exBut = Rectangle(Point(180,370), Point(330,460))
+            exBut.setOutline('black')
+            exBut.setFill('grey')
+            exBut.setWidth(1)
+            exBut.draw(win)
+            exText = Text(Point(255,410), 'Hard')
+            exText.setTextColor('red')
+            exText.setStyle('bold')
+            exText.setSize(20)
+            exText.draw(win)
+
+            #Exit
+            exBut = Rectangle(Point(400,50), Point(490,80))
+            exBut.setOutline('black')
+            exBut.setFill('white')
+            exBut.setWidth(1)
+            exBut.draw(win)
+            exText = Text(Point(443,66), 'Exit')
+            exText.setTextColor('black')
+            exText.setStyle('bold')
+            exText.setSize(12)
+            exText.draw(win)
+
+            playerButton = win.getMouse()
+
+            #Exit Command
+            if ((playerButton.getX()>400 and playerButton.getX()<490) and (playerButton.getY()>50 and playerButton.getY()<80)) :
+                win.close()
+
+            #Esay Mode mouse selection
+            if ((playerButton.getX()>180 and playerButton.getX()<330) and (playerButton.getY()>90 and playerButton.getY()<180)) :
+                win.close()
+                modeOne()
+
+            #Medium Mode mouse selection
+            if ((playerButton.getX()>180 and playerButton.getX()<330) and (playerButton.getY()>230 and playerButton.getY()<320)) :
+                win.close()
+                #modeTwo()
+
+            #Hard Mode Mouse Selection
+            if ((playerButton.getX()>180 and playerButton.getX()<330) and (playerButton.getY()>370 and playerButton.getY()<460)) :
+                win.close()
+                #modeThree                
+        board()
+
+
+def modeThree():
+        win = GraphWin('Tic Tac Toe',500, 500)
+        win.items=[]
+
+        def board():
+            #exText = Text(Point(250,20), 'Please Select Difficulty')
+            #exText.setTextColor('black')
+            #exText.setSize(15)
+            #exText.draw(win)
+
+            exText = Text(Point(250,30), 'Not Finished')
+            exText.setTextColor('black')
+            exText.setSize(20)
+            exText.draw(win)
+
+            #Exit
+            exBut = Rectangle(Point(400,50), Point(490,80))
+            exBut.setOutline('black')
+            exBut.setFill('white')
+            exBut.setWidth(1)
+            exBut.draw(win)
+            exText = Text(Point(443,66), 'Exit')
+            exText.setTextColor('black')
+            exText.setStyle('bold')
+            exText.setSize(12)
+            exText.draw(win)
+
+            playerButton = win.getMouse()
+
+            #Exit Command
+            if ((playerButton.getX()>400 and playerButton.getX()<490) and (playerButton.getY()>50 and playerButton.getY()<80)) :
+                win.close()              
+        board()
+
 def main():
+
+
     win = GraphWin('Tic Tac Toe',500, 500)
     win.items=[]
 
@@ -279,13 +400,22 @@ def main():
 
     playerButton = win.getMouse()
 
+    #Exit Command
+    if ((playerButton.getX()>400 and playerButton.getX()<490) and (playerButton.getY()>50 and playerButton.getY()<80)) :
+        win.close()
+
     #Two-Player mouse selection
     if ((playerButton.getX()>180 and playerButton.getX()<330) and (playerButton.getY()>90 and playerButton.getY()<180)) :
         win.close()
         modeOne()
 
-    #Exit Command
-    if ((playerButton.getX()>400 and playerButton.getX()<490) and (playerButton.getY()>50 and playerButton.getY()<80)) :
+    #Singple-Player mouse selection
+    if ((playerButton.getX()>180 and playerButton.getX()<330) and (playerButton.getY()>230 and playerButton.getY()<320)) :
         win.close()
-        
+        modeTwo()
+
+    #Customization Mouse Selection
+    if ((playerButton.getX()>180 and playerButton.getX()<330) and (playerButton.getY()>370 and playerButton.getY()<460)) :
+        win.close()
+        modeThree()
 main()
