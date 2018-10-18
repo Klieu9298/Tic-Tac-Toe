@@ -122,6 +122,7 @@ def modeOne():
         results.setStyle('bold')
         results.draw(win)
         time.sleep(3)
+        results.setText("")
         gameTwo()
 
     def clear(win):
