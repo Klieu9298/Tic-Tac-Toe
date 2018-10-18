@@ -2,6 +2,9 @@ from graphics import *
 import time
 
 score = 0
+oScore = 0
+xScore = 0
+
 def modeOne():
     win = GraphWin('Tic Tac Toe', 600, 500)
     win.items = []
@@ -62,6 +65,28 @@ def modeOne():
         verticleTwo.setWidth(3)
         verticleTwo.draw(win)
 
+        # Win counter
+        exText = Text(Point(510, 45), 'Wins')
+        exText.setTextColor('black')
+        exText.setStyle('bold')
+        exText.setSize(20)
+        exText.draw(win)
+
+        # Print the number of X wins
+        exText = Text(Point(480, 75), 'X: ')
+        exText.setTextColor('black')
+        exText.setStyle('bold')
+        exText.setSize(17)
+        exText.draw(win)
+
+
+        # Print the number of Y wins
+        exText = Text(Point(530, 75), 'Y: ')
+        exText.setTextColor('black')
+        exText.setStyle('bold')
+        exText.setSize(17)
+        exText.draw(win)
+
         numberBoard()
 
     # Make it so players can not choose the same square
@@ -101,6 +126,7 @@ def modeOne():
         results.draw(win)
         time.sleep(3)
         results.setText("")
+
         gameTwo()
 
     # X is the winner
@@ -112,10 +138,20 @@ def modeOne():
         results.draw(win)
         time.sleep(3)
         results.setText("")
+        # Print X score count
+        # Need help fixing, it prints new value over the old one
+        global xScore
+        xScore += 1
+        xsc = Text(Point(493, 75), xScore)
+        xsc.setTextColor('black')
+        xsc.setStyle('bold')
+        xsc.setSize(17)
+        xsc.draw(win)
         gameTwo()
 
     # O is the winner
     def Owinner():
+        oScore = 0
         results = Text(Point(300, 50), "O is the winner!!")
         results.setSize(20)
         results.setTextColor('black')
@@ -123,6 +159,15 @@ def modeOne():
         results.draw(win)
         time.sleep(3)
         results.setText("")
+        # Print X score count
+        # Need help fixing, it prints new value over the old one
+        global yScore
+        yScore += 1
+        ysc = Text(Point(493, 75), xScore)
+        ysc.setTextColor('black')
+        ysc.setStyle('bold')
+        ysc.setSize(17)
+        ysc.draw(win)
         gameTwo()
 
     def clear(win):
@@ -244,9 +289,11 @@ def modeOne():
     board()
     gameOne()
 
+
 def modeTwo():
     win = GraphWin('Tic Tac Toe', 500, 500)
     win.items = []
+
     def board():
         # exText = Text(Point(250,20), 'Please Select Difficulty')
         # exText.setTextColor('black')
@@ -316,21 +363,22 @@ def modeTwo():
         if ((playerButton.getX() > 180 and playerButton.getX() < 330) and (
                 playerButton.getY() > 90 and playerButton.getY() < 180)):
             win.close()
-            #easyMode()
+            # easyMode()
 
         # Medium Mode mouse selection
         if ((playerButton.getX() > 180 and playerButton.getX() < 330) and (
                 playerButton.getY() > 230 and playerButton.getY() < 320)):
             win.close()
-            #mediumMode()
+            # mediumMode()
 
         # Hard Mode Mouse Selection
         if ((playerButton.getX() > 180 and playerButton.getX() < 330) and (
                 playerButton.getY() > 370 and playerButton.getY() < 460)):
             win.close()
-            #hardMode()
+            # hardMode()
 
     board()
+
 
 def modeThree():
     win = GraphWin('Tic Tac Toe', 500, 500)
@@ -364,7 +412,9 @@ def modeThree():
         if ((playerButton.getX() > 400 and playerButton.getX() < 490) and (
                 playerButton.getY() > 50 and playerButton.getY() < 80)):
             win.close()
+
     board()
+
 
 def main():
     win = GraphWin('Tic Tac Toe', 500, 500)
@@ -447,4 +497,6 @@ def main():
             playerButton.getY() > 370 and playerButton.getY() < 460)):
         win.close()
         modeThree()
+
+
 main()
