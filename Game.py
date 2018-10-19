@@ -318,23 +318,23 @@ def takeTurnAI(difficulty):
     if (difficulty > 0):
         Tile = 0
 
-        if (win.items[5].getText() == 'X') and not (win.items[5].getText() == 'O'):
+        if not (win.items[5].getText() == 'X') and not (win.items[5].getText() == 'O'):
             Tile = 5
-        elif (win.items[7].getText() == 'X') and not (win.items[7].getText() == 'O'):
+        elif not (win.items[7].getText() == 'X') and not (win.items[7].getText() == 'O'):
             Tile = 7
-        elif (win.items[9].getText() == 'X') and not (win.items[9].getText() == 'O'):
+        elif not (win.items[9].getText() == 'X') and not (win.items[9].getText() == 'O'):
             Tile = 9
-        elif (win.items[1].getText() == 'X') and not (win.items[1].getText() == 'O'):
+        elif not (win.items[1].getText() == 'X') and not (win.items[1].getText() == 'O'):
             Tile = 1
-        elif (win.items[3].getText() == 'X') and not (win.items[3].getText() == 'O'):
+        elif not (win.items[3].getText() == 'X') and not (win.items[3].getText() == 'O'):
             Tile = 3
-        elif (win.items[2].getText() == 'X') and not (win.items[2].getText() == 'O'):
+        elif not (win.items[2].getText() == 'X') and not (win.items[2].getText() == 'O'):
             Tile = 2
-        elif (win.items[8].getText() == 'X') and not (win.items[9].getText() == 'O'):
+        elif not (win.items[8].getText() == 'X') and not (win.items[9].getText() == 'O'):
             Tile = 8
-        elif (win.items[4].getText() == 'X') and not (win.items[1].getText() == 'O'):
+        elif not (win.items[4].getText() == 'X') and not (win.items[1].getText() == 'O'):
             Tile = 4
-        elif (win.items[6].getText() == 'X') and not (win.items[3].getText() == 'O'):
+        elif not (win.items[6].getText() == 'X') and not (win.items[3].getText() == 'O'):
             Tile = 6
 
         if score % 2 == 0:
@@ -367,8 +367,8 @@ def gameOneSinglePlayer(difficulty):
         elif ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
                 playerButton.getY() > 310 and playerButton.getY() < 340)):
             nowExit()
-
-        takeTurnAI(difficulty)
+        if(winnerCheck()):
+            takeTurnAI(difficulty)
 
 
 def modeOne():
