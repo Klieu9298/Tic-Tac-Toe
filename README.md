@@ -8,4 +8,7 @@
    #### 3. Unable to get win counter to work
         - currently unresolved
    #### 4. When Playing against AI, game will crash on turn 6
-        - currently unresolved
+        - fixed by changing value of random.randrange(0,2) to 3 for both x and y
+   #### 5. Issue with game not restarting under single player after O or X win
+        - unresolved
+   #### 6. 

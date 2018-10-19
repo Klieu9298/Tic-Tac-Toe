@@ -378,25 +378,7 @@ def gameOneSinglePlayer(difficulty):
             nowExit()
 
 
-def gameTwo():
-    playerButton = win.getMouse()
-    if ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
-            playerButton.getY() > 160 and playerButton.getY() < 190)):
-        restart()
-    elif ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
-            playerButton.getY() > 310 and playerButton.getY() < 340)):
-        nowExit()
-    else:
-        clear(win)
-        playerButton = win.getMouse()
-        if ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
-                playerButton.getY() > 160 and playerButton.getY() < 190)):
-            restart()
-        elif ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
-                playerButton.getY() > 310 and playerButton.getY() < 340)):
-            nowExit()
-        else:
-            gameTwo()
+
 
 
 def modeOne():
