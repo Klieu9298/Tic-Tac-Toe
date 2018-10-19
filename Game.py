@@ -4,10 +4,11 @@ from graphics import *
 import time
 
 score = 0
-#oScore = 0
-#xScore = 0
+# oScore = 0
+# xScore = 0
 win = GraphWin('Tic Tac Toe', 600, 500)
 win.items = []
+
 
 def board():
     # restart Button
@@ -296,13 +297,14 @@ def gameTwo():
         else:
             gameTwo()
 
+
 def takeTurnAI(difficulty):
     if 3 > difficulty > -1:
         difficulty = 0
     if (difficulty == 0):
         while (True):
-            X = int(random.randrange(0, 2))
-            Y = int(random.randrange(0, 2))
+            X = int(random.randrange(0, 3))
+            Y = int(random.randrange(0, 3))
             global score
             if not (win.items[Y * 3 + X].getText() == 'X') and not (win.items[Y * 3 + X].getText() == 'O'):
                 if score % 2 == 0:
@@ -343,6 +345,7 @@ def takeTurnAI(difficulty):
             win.items[Tile].setText('O')
         score += 1
         clear(win)
+
 
 def gameOneSinglePlayer(difficulty):
     while (winnerCheck()):
@@ -395,22 +398,20 @@ def gameTwo():
         else:
             gameTwo()
 
-def modeOne():
 
+def modeOne():
     noBack()
     board()
     gameOne()
 
 
 def modeTwo():
-
     noBack()
     board()
     gameOneSinglePlayer(0)
 
+
 def modeThree():
-
-
     def board():
         win = GraphWin('Tic Tac Toe', 500, 500)
         win.items = []
@@ -436,7 +437,6 @@ def modeThree():
         exText.setSize(12)
         exText.draw(win)
 
-        
 
 def main():
     win = GraphWin('Tic Tac Toe', 500, 500)
@@ -519,8 +519,6 @@ def main():
             playerButton.getY() > 370 and playerButton.getY() < 460)):
         win.close()
         modeThree()
-
-
 
 
 main()
