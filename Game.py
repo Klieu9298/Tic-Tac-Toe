@@ -1642,6 +1642,7 @@ def main():
             playerButton.getY() > 370 and playerButton.getY() < 460)):
         win.close()
         modeThree()
+
 def takeTurnAI(difficulty):
     if 3 > difficulty > -1:
         difficulty = 0
@@ -1715,78 +1716,7 @@ def gameOneSinglePlayer(difficulty):
             nowExit()
 
         takeTurnAI(difficulty)
-def takeTurnAI(difficulty):
-    if 3 > difficulty > -1:
-        difficulty = 0
-    if (difficulty == 0):
-        while (True):
-            X = int(random.randrange(0, 2))
-            Y = int(random.randrange(0, 2))
-            global score
-            if not (win.items[Y * 3 + X].getText() == 'X') and not (win.items[Y * 3 + X].getText() == 'O'):
-                if score % 2 == 0:
-                    win.items[Y * 3 + X].setText('X')
-                else:
-                    win.items[Y * 3 + X].setText('O')
-                score += 1
-                clear(win)
-                break
-            else:
-                continue
 
-    if (difficulty > 0):
-        Tile = 0
 
-        if (win.items[5].getText() == 'X') and not (win.items[5].getText() == 'O'):
-            Tile = 5
-        elif (win.items[7].getText() == 'X') and not (win.items[7].getText() == 'O'):
-            Tile = 7
-        elif (win.items[9].getText() == 'X') and not (win.items[9].getText() == 'O'):
-            Tile = 9
-        elif (win.items[1].getText() == 'X') and not (win.items[1].getText() == 'O'):
-            Tile = 1
-        elif (win.items[3].getText() == 'X') and not (win.items[3].getText() == 'O'):
-            Tile = 3
-        elif (win.items[2].getText() == 'X') and not (win.items[2].getText() == 'O'):
-            Tile = 2
-        elif (win.items[8].getText() == 'X') and not (win.items[9].getText() == 'O'):
-            Tile = 8
-        elif (win.items[4].getText() == 'X') and not (win.items[1].getText() == 'O'):
-            Tile = 4
-        elif (win.items[6].getText() == 'X') and not (win.items[3].getText() == 'O'):
-            Tile = 6
-
-        if score % 2 == 0:
-            win.items[Tile].setText('X')
-        else:
-            win.items[Tile].setText('O')
-        score += 1
-        clear(win)
-
-def gameOneSinglePlayer(difficulty):
-    while (winnerCheck()):
-        playerButton = win.getMouse()
-        if ((playerButton.getX() > 100 and playerButton.getX() < 400) and (
-                playerButton.getY() > 100 and playerButton.getY() < 400)):
-            X = int((playerButton.getX() - 100) // 100)
-            Y = int((playerButton.getY() - 100) // 100)
-            global score
-            if not (win.items[Y * 3 + X].getText() == 'X') and not (win.items[Y * 3 + X].getText() == 'O'):
-                if score % 2 == 0:
-                    win.items[Y * 3 + X].setText('X')
-                else:
-                    win.items[Y * 3 + X].setText('O')
-                score += 1
-                clear(win)
-            else:
-                invalidChoice()
-        elif ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
-                playerButton.getY() > 160 and playerButton.getY() < 190)):
-            restart()
-        elif ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
-                playerButton.getY() > 310 and playerButton.getY() < 340)):
-            nowExit()
-
-        takeTurnAI(difficulty)
 
 main()
