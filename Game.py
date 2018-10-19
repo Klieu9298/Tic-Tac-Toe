@@ -361,15 +361,39 @@ def gameOneSinglePlayer(difficulty):
                 clear(win)
             else:
                 invalidChoice()
+            if (winnerCheck()):
+                takeTurnAI(difficulty)
+            if (score % 2 == 0):
+                difficulty = 0
+            else:
+                difficulty = 1
         elif ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
                 playerButton.getY() > 160 and playerButton.getY() < 190)):
             restart()
         elif ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
                 playerButton.getY() > 310 and playerButton.getY() < 340)):
             nowExit()
-        if(winnerCheck()):
-            takeTurnAI(difficulty)
 
+
+def gameTwo():
+    playerButton = win.getMouse()
+    if ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
+            playerButton.getY() > 160 and playerButton.getY() < 190)):
+        restart()
+    elif ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
+            playerButton.getY() > 310 and playerButton.getY() < 340)):
+        nowExit()
+    else:
+        clear(win)
+        playerButton = win.getMouse()
+        if ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
+                playerButton.getY() > 160 and playerButton.getY() < 190)):
+            restart()
+        elif ((playerButton.getX() > 440 and playerButton.getX() < 560) and (
+                playerButton.getY() > 310 and playerButton.getY() < 340)):
+            nowExit()
+        else:
+            gameTwo()
 
 def modeOne():
 
@@ -378,11 +402,11 @@ def modeOne():
     gameOne()
 
 
-def modeTwo(difficulty):
+def modeTwo():
 
     noBack()
     board()
-    gameOneSinglePlayer(2)
+    gameOneSinglePlayer(0)
 
 def modeThree():
 
@@ -488,7 +512,7 @@ def main():
     if ((playerButton.getX() > 180 and playerButton.getX() < 330) and (
             playerButton.getY() > 230 and playerButton.getY() < 320)):
         win.close()
-        modeTwo(2)
+        modeTwo()
 
     # Customization Mouse Selection
     if ((playerButton.getX() > 180 and playerButton.getX() < 330) and (

@@ -34,14 +34,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="545" />
-          <entry key="txt" value="44" />
+          <entry key="py" value="696" />
+          <entry key="txt" value="85" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="44" />
-          <entry key="Python" value="545" />
+          <entry key="PLAIN_TEXT" value="85" />
+          <entry key="Python" value="696" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -52,12 +52,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="303" column="26" lean-forward="true" selection-start-line="303" selection-start-column="26" selection-end-line="303" selection-end-column="26" />
+            <state relative-caret-position="172">
+              <caret line="301" column="25" lean-forward="true" selection-start-line="301" selection-start-column="25" selection-end-line="301" selection-end-column="25" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1539951088108" expanded="true" signature="11939:11954" ph="..." />
-                <marker date="1539951088108" expanded="true" signature="11939:11994" ph="..." />
+                <marker date="1539952644105" expanded="true" signature="12942:12957" ph="..." />
+                <marker date="1539952644105" expanded="true" signature="12942:12997" ph="..." />
               </folding>
             </state>
           </provider>
@@ -275,7 +275,21 @@
       <option name="project" value="LOCAL" />
       <updated>1539924353073</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="&quot;Random ReImported&quot;">
+      <created>1539951110863</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1539951110863</updated>
+    </task>
+    <task id="LOCAL-00004" summary="&quot;AI Partly Implemented&quot;">
+      <created>1539952174602</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1539952174602</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -307,17 +321,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;AI Module Ready&quot;" />
     <MESSAGE value="&quot;AI Module Placed in Mode 2&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;AI Module Placed in Mode 2&quot;" />
+    <MESSAGE value="&quot;Random ReImported&quot;" />
+    <MESSAGE value="&quot;AI Partly Implemented&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;AI Partly Implemented&quot;" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="303" column="26" lean-forward="true" selection-start-line="303" selection-start-column="26" selection-end-line="303" selection-end-column="26" />
+        <state relative-caret-position="172">
+          <caret line="301" column="25" lean-forward="true" selection-start-line="301" selection-start-column="25" selection-end-line="301" selection-end-column="25" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1539951088108" expanded="true" signature="11939:11954" ph="..." />
-            <marker date="1539951088108" expanded="true" signature="11939:11994" ph="..." />
+            <marker date="1539952644105" expanded="true" signature="12942:12957" ph="..." />
+            <marker date="1539952644105" expanded="true" signature="12942:12997" ph="..." />
           </folding>
         </state>
       </provider>
