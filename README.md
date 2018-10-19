@@ -11,4 +11,3 @@
         - fixed by changing value of random.randrange(0,2) to 3 for both x and y
    #### 5. Issue with game not restarting under single player after O or X win
         - unresolved
-   #### 6. 

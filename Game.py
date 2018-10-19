@@ -1,11 +1,8 @@
 import random
-
 from graphics import *
 import time
 
 score = 0
-# oScore = 0
-# xScore = 0
 win = GraphWin('Tic Tac Toe', 600, 500)
 win.items = []
 
@@ -65,28 +62,6 @@ def board():
     verticleTwo.setOutline('black')
     verticleTwo.setWidth(3)
     verticleTwo.draw(win)
-
-    # Win counter
-    # exText = Text(Point(510, 45), 'Wins')
-    # exText.setTextColor('black')
-    # exText.setStyle('bold')
-    # exText.setSize(20)
-    # exText.draw(win)
-
-    # Print the number of X wins
-    # exText = Text(Point(480, 75), 'X: ')
-    # exText.setTextColor('black')
-    # exText.setStyle('bold')
-    # exText.setSize(17)
-    # exText.draw(win)
-
-    # Print the number of Y wins
-    # exText = Text(Point(530, 75), 'Y: ')
-    # exText.setTextColor('black')
-    # exText.setStyle('bold')
-    # exText.setSize(17)
-    # exText.draw(win)
-
     numberBoard()
 
 
@@ -131,7 +106,6 @@ def tieGame():
     results.draw(win)
     time.sleep(3)
     results.setText("")
-
     gameTwo()
 
 
@@ -144,15 +118,6 @@ def Xwinner():
     results.draw(win)
     time.sleep(3)
     results.setText("")
-    # Print X score count
-    # Need help fixing, it prints new value over the old one
-    # global xScore
-    # xScore += 1
-    # xsc = Text(Point(493, 75), xScore)
-    # xsc.setTextColor('black')
-    # xsc.setStyle('bold')
-    # xsc.setSize(17)
-    # xsc.draw(win)
     gameTwo()
 
 
@@ -166,15 +131,6 @@ def Owinner():
     results.draw(win)
     time.sleep(3)
     results.setText("")
-    # Print X score count
-    # Need help fixing, it prints new value over the old one
-    # global yScore
-    # yScore += 1
-    # ysc = Text(Point(493, 75), xScore)
-    # ysc.setTextColor('black')
-    # ysc.setStyle('bold')
-    # ysc.setSize(17)
-    # ysc.draw(win)
     gameTwo()
 
 
@@ -316,10 +272,8 @@ def takeTurnAI(difficulty):
                 break
             else:
                 continue
-
     if (difficulty > 0):
         Tile = 0
-
         if not (win.items[5].getText() == 'X') and not (win.items[5].getText() == 'O'):
             Tile = 5
         elif not (win.items[7].getText() == 'X') and not (win.items[7].getText() == 'O'):
@@ -338,7 +292,6 @@ def takeTurnAI(difficulty):
             Tile = 4
         elif not (win.items[6].getText() == 'X') and not (win.items[3].getText() == 'O'):
             Tile = 6
-
         if score % 2 == 0:
             win.items[Tile].setText('X')
         else:
@@ -378,9 +331,6 @@ def gameOneSinglePlayer(difficulty):
             nowExit()
 
 
-
-
-
 def modeOne():
     noBack()
     board()
@@ -397,10 +347,6 @@ def modeThree():
     def board():
         win = GraphWin('Tic Tac Toe', 500, 500)
         win.items = []
-        # exText = Text(Point(250,20), 'Please Select Difficulty')
-        # exText.setTextColor('black')
-        # exText.setSize(15)
-        # exText.draw(win)
 
         exText = Text(Point(250, 30), 'Random Color Generator')
         exText.setTextColor('black')
@@ -478,7 +424,6 @@ def main():
     exText.draw(win)
 
     playerButton = win.getMouse()
-
     # Exit Command
     if ((playerButton.getX() > 400 and playerButton.getX() < 490) and (
             playerButton.getY() > 50 and playerButton.getY() < 80)):
